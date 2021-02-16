@@ -1,0 +1,555 @@
+.search-show {
+  display: block;
+}
+
+.search-hide {
+  display: none;
+}
+
+.search-bar-show {
+  display: none;
+}
+
+.search-bar-hide {
+  display: none;
+}
+
+.btn-info {
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+}
+
+.btn-group-xs > .btn,
+.btn-xs {
+  padding: 0.6rem 0.6rem;
+  font-size: 1rem;
+  line-height: 0.5;
+  border-radius: 0.5rem;
+  border: 0;
+  background-color: #b9b9b9;
+  color: white;
+  margin-left: 4px;
+}
+
+#search-box {
+  position: fixed;
+  top: 120px;
+  left: 100px;
+  width: 330px;
+  height: 540px;
+  /* display: block; */
+}
+#search-bar {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  background-color: red;
+}
+
+@media screen and (max-width: 700px) {
+  #search-box {
+    position: fixed;
+    top: 100px;
+    left: calc((100vw - 330px) / 2);
+  }
+  #search-bar {
+    position: fixed;
+    top: 10px;
+    left: calc((100vw - 330px) / 2);
+  }
+}
+
+#search-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 540px;
+  width: 330px;
+  background-color: white;
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+#search {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 80px 80px 80px 80px 80px 80px 50px;
+      grid-template-rows: 80px 80px 80px 80px 80px 80px 50px;
+  -ms-grid-columns: 165px 65px 100px;
+      grid-template-columns: 165px 65px 100px;
+}
+
+#search #form-city {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 2;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 5px;
+}
+
+#search #form-location-station {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: 3;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+  padding: 5px;
+}
+
+#search #form-checkin {
+  -ms-grid-row: 3;
+      grid-row-start: 3;
+  grid-row-end: 4;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  padding: 5px;
+}
+
+#search #form-checkout {
+  -ms-grid-row: 4;
+      grid-row-start: 4;
+  grid-row-end: 5;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  padding: 5px;
+}
+
+#search #form-flexibility {
+  -ms-grid-row: 5;
+      grid-row-start: 5;
+  grid-row-end: 6;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  padding: 5px;
+}
+
+#search #form-facilities {
+  -ms-grid-row: 3;
+      grid-row-start: 3;
+  grid-row-end: 7;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 4;
+  padding: 5px;
+  margin: 15px 5px;
+}
+
+#search #form-facilities .group {
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+#search #form-facilities .form-check {
+  margin-left: 20px;
+}
+
+#search #form-guests {
+  -ms-grid-row: 6;
+      grid-row-start: 6;
+  grid-row-end: 7;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  padding: 5px;
+}
+
+#search #form-budget {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 1;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  grid-column-end: 3;
+  padding: 5px;
+}
+
+#search #button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-row: 7;
+      grid-row-start: 7;
+  grid-row-end: 8;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+  padding: 5px;
+}
+
+#search #form-city label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: lighter;
+  color: #343434;
+}
+
+#search #form-city #input-city {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  height: 35px;
+}
+
+#search #form-city #input-city::-webkit-input-placeholder {
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+#search #form-city #input-city:-ms-input-placeholder {
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+#search #form-city #input-city::-ms-input-placeholder {
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+#search #form-city #input-city::placeholder {
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+#search #form-location-station label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: lighter;
+  color: #343434;
+}
+
+#search #form-location-station #input-location-station {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  height: 35px;
+}
+
+#search #form-location-station #input-location-station::-webkit-input-placeholder {
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+#search #form-location-station #input-location-station:-ms-input-placeholder {
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+#search #form-location-station #input-location-station::-ms-input-placeholder {
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+#search #form-location-station #input-location-station::placeholder {
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+#search #form-checkin label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: lighter;
+  color: #343434;
+}
+
+#search #form-checkin input {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  height: 35px;
+}
+
+#search #form-checkin select {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+}
+
+#search #form-checkout label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: lighter;
+  color: #343434;
+}
+
+#search #form-checkout input {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  height: 35px;
+}
+
+#search #form-checkout select {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+}
+
+#search #form-facilities {
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+}
+
+#search #form-facilities .group {
+  padding-top: 16px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: lighter;
+  color: #343434;
+}
+
+#search #form-facilities label {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: normal;
+  color: #343434;
+}
+
+#search #form-flexibility label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: lighter;
+  color: #343434;
+}
+
+#search #form-flexibility input {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  height: 35px;
+}
+
+#search #form-flexibility select {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+}
+
+#search #form-budget label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: lighter;
+  color: #343434;
+}
+
+#search #form-budget input {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  height: 35px;
+}
+
+#search #form-budget select {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  height: 35px;
+}
+
+#search #form-guests label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: lighter;
+  color: #343434;
+}
+
+#search #form-guests input {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  height: 35px;
+}
+
+#search #form-guests select {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #272727;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  height: 35px;
+}
+
+#search #button button {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  border: 1px solid #afafaf;
+  border-radius: 10px;
+  height: 40px;
+}
+/*# sourceMappingURL=search.css.map */

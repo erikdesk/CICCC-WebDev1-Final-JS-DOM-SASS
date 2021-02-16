@@ -1,0 +1,225 @@
+@import "mixin";
+@import "color";
+@import "font";
+
+@keyframes greyscale-fade-out {
+  0% {
+    transform: scale(1);
+    filter: opacity(100%);
+  }
+  100% {
+    transform: scale(0.1);
+    filter: opacity(0%);
+  }
+}
+
+// max-width: 500px;
+
+$hotel-header-margin-right: 10px;
+
+// .hidden {
+//   visibility: none;
+// }
+
+// .hidden-fadeOut {
+//   visibility: none;
+//   opacity: 0;
+//   transition: visibility 0s linear 300ms, opacity 3000ms;
+// }
+
+// .visible-fadeIn {
+//   visibility: visible;
+//   opacity: 1;
+//   transition: visibility 0s linear 0s, opacity 3000ms;
+// }
+
+// 1
+// 1
+// 1
+// 1
+// 1
+// 1
+// 1
+
+// SHOW DISTANCE TO STATION ON MARKER?
+// SHOW DISTANCE TO STATION ON MARKER?
+// SHOW DISTANCE TO STATION ON MARKER?
+// SHOW DISTANCE TO STATION ON MARKER?
+
+// TOGGLE RATING/ REVIEWS/ DISTANCE TO STATION?
+// TOGGLE RATING/ REVIEWS/ DISTANCE TO STATION?
+// TOGGLE RATING/ REVIEWS/ DISTANCE TO STATION?
+// TOGGLE RATING/ REVIEWS/ DISTANCE TO STATION?
+
+// LEGEND BELOW?
+// LEGEND BELOW?
+// LEGEND BELOW?
+// LEGEND BELOW?
+
+// @media screen and (max-width: 700px)
+
+#marker-cursor-block {
+  position: fixed;
+  top: 8px;
+  left: 10px;
+  width: 52px;
+  height: 38px;
+  border: 1px solid red;
+}
+
+#marker-hotel-cursor-block {
+  position: fixed;
+  top: 8px;
+  left: calc(10px + 52px + 5px);
+  width: 268px;
+  height: 38px;
+  border: 1px solid red;
+}
+
+.marker-cursor-block-inactive,
+.marker-hotel-cursor-block-inactive {
+  display: none;
+}
+
+.marker-cursor-block-active,
+.marker-hotel-cursor-block-active {
+  display: block;
+}
+
+.marker-center {
+  // animation: greyscale-fade-out 10s ease-in forwards;
+  // height: 15px;
+  // width: 15px;
+  // border-radius: 5px;
+  // background: $color-marker-center;
+}
+
+  // // Marker hotel name inactive.
+  // : rgba(52, 52, 52, 1);
+  // : 1px solid rgba(52, 52, 52, 1);
+  // : 3px 3px 5px rgba(0, 0, 0, 0.75);
+
+  // // Marker hotel name inactive (content).
+  // : rgba(212, 212, 212, 1);
+  // : rgba(212, 212, 212, 1);
+  // : rgba(212, 212, 212, 1);
+
+  // $color-marker-hotel-text-inactive: rgba(212, 212, 212, 1);
+}
+
+// @include font($font-marker-hotel-header-name);
+// color: $color-marker-hotel-text-inactive;
+
+// #testtest {
+//   @include font($font-marker-rating);
+//   color: $color-marker-hotel-text-inactive;
+//   font-weight: normal;
+// }
+
+////////////// stopped here....
+// Marker selected.
+// $color-marker-bg-hover: rgba(52, 52, 52, 1);
+// $color-marker-text-hover: rgba(212, 212, 212, 1);
+// $border-marker-inactive: 1px solid rgba(52, 52, 52, 1);
+// $shadow-marker-hover: 3px 3px 5px rgba(0, 0, 0, 0.75);
+
+.marker {
+  display: grid;
+  width: 52px;
+  height: 36px;
+  grid-template-rows: 18px 16px;
+  grid-template-columns: 15px 15px 20px;
+  border-radius: 8px;
+  background-color: $color-marker-bg-inactive;
+  border: $border-marker-inactive;
+  box-shadow: $shadow-marker-inactive;
+  transition: 0.5s all;
+
+  .price {
+    grid-column: 1 / span 3;
+    padding-top: 2px;
+    text-align: center;
+    @include font($font-marker-price);
+    color: $color-marker-text-inactive;
+  }
+
+  .rating {
+    text-align: center;
+    @include font($font-marker-rating);
+    color: $color-marker-text-inactive;
+  }
+
+  .reviews {
+    text-align: center;
+    @include font($font-marker-reviews);
+    color: $color-marker-text-inactive;
+  }
+
+  .star {
+    @include flexCenter();
+
+    img {
+      height: 14px;
+      width: 14px;
+    }
+  }
+
+  &:hover {
+    background-color: $color-marker-bg-hover;
+    box-shadow: $shadow-marker-hover;
+    cursor: url(../svg/cursor-round-white.svg) 6 6, pointer;
+    transition: 0.5s all;
+
+    .price {
+      color: $color-marker-text-hover;
+    }
+    .rating {
+      color: $color-marker-text-hover;
+    }
+    .reviews {
+      color: $color-marker-text-hover;
+    }
+  }
+}
+
+.marker-selected {
+  display: grid;
+  width: 52px;
+  height: 36px;
+  grid-template-rows: 18px 16px;
+  grid-template-columns: 15px 15px 20px;
+  border-radius: 8px;
+
+  background-color: $color-marker-bg-selected;
+  border: $border-marker-selected;
+  box-shadow: $shadow-marker-selected;
+
+  .price {
+    grid-column: 1 / span 3;
+    padding-top: 2px;
+    text-align: center;
+    @include font($font-marker-price);
+    color: $color-marker-text-selected;
+  }
+
+  .rating {
+    text-align: center;
+    @include font($font-marker-rating);
+    color: $color-marker-text-selected;
+  }
+
+  .reviews {
+    text-align: center;
+    @include font($font-marker-reviews);
+    color: $color-marker-text-selected;
+  }
+
+  .star {
+    @include flexCenter();
+
+    img {
+      height: 14px;
+      width: 14px;
+    }
+  }
+}

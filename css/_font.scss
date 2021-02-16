@@ -1,0 +1,138 @@
+@mixin font($objFont) {
+  font-family: map-get($objFont, font-family);
+  font-size: map-get($objFont, size);
+  line-height: map-get($objFont, line);
+  font-weight: map-get($objFont, weight);
+}
+
+$font-logo: (
+  font-family: (
+    "Saira Condensed",
+    sans-serif,
+  ),
+  size: 50px,
+  line: 50px,
+  weight: 100,
+);
+
+$font-footer: (
+  font-family: (
+    "Noto Sans JP",
+    sans-serif,
+  ),
+  size: 12px,
+  line: 12px,
+  weight: 100,
+);
+
+$font-search-label: (
+  font-family: (
+    "Noto Sans JP",
+    sans-serif,
+  ),
+  size: 14px,
+  line: 14px,
+  weight: lighter,
+);
+
+$font-search-input: (
+  font-family: (
+    "Noto Sans JP",
+    sans-serif,
+  ),
+  size: 14px,
+  line: 14px,
+  weight: bold,
+);
+
+$font-search-facilities-group: (
+  font-family: (
+    "Noto Sans JP",
+    sans-serif,
+  ),
+  size: 14px,
+  line: 14px,
+  weight: lighter,
+);
+
+$font-search-facilities-item: (
+  font-family: (
+    "Noto Sans JP",
+    sans-serif,
+  ),
+  size: 14px,
+  line: 14px,
+  weight: normal,
+);
+
+$font-search-button: (
+  font-family: (
+    "Noto Sans JP",
+    sans-serif,
+  ),
+  size: 14px,
+  line: 14px,
+  weight: bold,
+);
+
+// Marker.
+$font-marker-price: (
+  font-family: (
+    "Roboto",
+    sans-serif,
+  ),
+  size: 17px,
+  line: 18px,
+  weight: bold,
+);
+
+$font-marker-rating: (
+  font-family: (
+    "Roboto Condensed",
+    sans-serif,
+  ),
+  size: 12px,
+  line: 17px,
+  weight: bold,
+);
+
+$font-marker-reviews: (
+  font-family: (
+    "Roboto Condensed",
+    sans-serif,
+  ),
+  size: 10px,
+  line: 15px,
+  weight: bold,
+);
+
+// Marker hotel name.
+$font-marker-hotel-header-name: (
+  font-family: (
+    "Roboto",
+    sans-serif,
+  ),
+  size: 14px,
+  line: 16px,
+  weight: bold,
+);
+
+$font-marker-hotel-header-nearest: (
+  font-family: (
+    "Roboto Condensed",
+    sans-serif,
+  ),
+  size: 12px,
+  line: 17px,
+  weight: normal,
+);
+
+$marker-hotel-header-station: (
+  font-family: (
+    "Roboto Condensed",
+    sans-serif,
+  ),
+  size: 12px,
+  line: 17px,
+  weight: normal,
+);

@@ -1,0 +1,36 @@
+.mobile-landscape-mode-active {
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: lightgrey;
+}
+
+.mobile-landscape-mode-inactive {
+  display: none;
+}
+
+#mobile-landscape-mode div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 80vw;
+  height: 20vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 40vh;
+  margin-bottom: 40vh;
+  border: 1px solid rgba(52, 52, 52, 0.25);
+  border-radius: 20px;
+  font-size: 20px;
+  color: rgba(52, 52, 52, 0.75);
+  padding: 20px;
+}
+/*# sourceMappingURL=landscape.css.map */

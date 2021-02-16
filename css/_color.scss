@@ -1,0 +1,54 @@
+// $color-bg-light: lightsalmon;
+// $color-bg-dark: rgba(52, 52, 52, 1);
+
+$color-logo: rgba(255, 255, 255, 1);
+$color-logo-bg: rgba(52, 52, 52, 1);
+$color-footer: rgba(255, 255, 255, 1);
+$color-footer-bg: rgba(52, 52, 52, 1);
+
+// Cover map.
+$color-cover-city: rgba(255, 87, 51, 0.8);
+
+$color-search-label: rgba(52, 52, 52, 1);
+$color-search-input: rgba(39, 39, 39, 1);
+$border-search-facilities: 1px solid rgba(175, 175, 175, 1);
+$border-search-input-default: 1px solid rgba(175, 175, 175, 1);
+
+$color-search-bg: rgba(255, 255, 255, 1);
+$shadow-search: 3px 3px 5px rgba(0, 0, 0, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.1);
+
+$border-search-button-default: 1px solid rgba(175, 175, 175, 1);
+
+// Marker center.
+$color-marker-center: rgba(255, 87, 51, 0.8);
+
+// Marker inactive.
+$color-marker-bg-inactive: rgba(255, 255, 255, 1);
+$color-marker-text-inactive: rgba(52, 52, 52, 1);
+$border-marker-inactive: 1px solid rgba(52, 52, 52, 1);
+$shadow-marker-inactive: 2px 2px 3px rgba(0, 0, 0, 0.25);
+
+// Marker selected.
+$color-marker-bg-selected: rgba(52, 52, 52, 1);
+$color-marker-text-selected: rgba(212, 212, 212, 1);
+$border-marker-selected: 1px solid rgba(52, 52, 52, 1);
+$shadow-marker-selected: 3px 3px 5px rgba(0, 0, 0, 0.75);
+
+// Marker on hover.
+$color-marker-bg-hover: rgba(52, 52, 52, 1);
+$color-marker-text-hover: rgba(212, 212, 212, 1);
+$shadow-marker-hover: 3px 3px 5px rgba(0, 0, 0, 0.75);
+
+// Marker hotel name.
+$color-marker-hotel-header-bg: rgba(5, 5, 5, 1);
+$border-marker-hotel-header: 1px solid rgba(52, 52, 52, 1);
+$shadow-marker-hotel-header: 3px 3px 5px rgba(0, 0, 0, 0.75);
+
+// Marker hotel name (content).
+$color-marker-hotel-header-name-text: rgba(212, 212, 212, 1);
+$color-marker-hotel-header-nearest-text: rgba(212, 212, 212, 1);
+$color-marker-hotel-header-station-text: rgba(212, 212, 212, 1);
+
+// Card.
+$color-card-bg: rgba(255, 255, 255, 1);
+$shadow-card: 3px 3px 5px rgba(0, 0, 0, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.1);

@@ -1,0 +1,62 @@
+<style>
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<div id="map" style="position: relative; overflow: hidden">
+  <div
+    style="
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-color: rgb(229, 227, 223);
+    "
+  ></div>
+</div>
+<script>
+  function initMap() {
+    var directionsService = new google.maps.DirectionsService(); //
+    // Optionally create a map
+    var directionsDisplay = new google.maps.DirectionsRenderer();
+    var map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 7,
+      center: { lat: 41.85, lng: -87.65 },
+    });
+    directionsDisplay.setMap(map);
+
+    directionsService.route(
+      {
+        origin: "1.3495746,103.9567591",
+        destination: "1.3236723,103.9273534",
+        travelMode: "walking",
+      },
+      function (response, status) {
+        if (status === "OK") {
+          // Pass data to the map
+          directionsDisplay.setDirections(response);
+
+          // See the data in the console
+          console.log(response);
+        } else {
+          window.alert("Directions request failed due to " + status);
+        }
+      }
+    );
+  }
+</script>
+<script
+  async=""
+  defer=""
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQUu01hvcUZo14XTn4dqKqW2sNG_fpGik&callback=initMap"
+></script>

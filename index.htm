@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Hotel, Travel, Booking" />
+    <meta name="author" content="HotelBook" />
+    <meta
+      name="description"
+      content="HotelBook: Find hotels quick and simple from anywhere in the world."
+    />
+    <title>
+      HotelBook: Find hotels quick and simple from anywhere in the world.
+    </title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="ico/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="ico/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="ico/favicon-16x16.png"
+    />
+    <link rel="manifest" href="ico/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;400;700&family=Saira+Condensed:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/map.css" /> -->
+    <link rel="stylesheet" href="css/cover.css" />
+    <link rel="stylesheet" href="css/marker.css" />
+    <link rel="stylesheet" href="css/card.css" />
+    <link rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="css/landscape.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="top" class="cover-mode">
+      <div id="top-bar">
+        <header id="header">
+          <div id="logo">
+            HotelBook<img
+              src="svg/ticket-inactive.svg"
+              alt="A flight ticket icon."
+            />
+          </div>
+          <h1>HotelBook</h1>
+          <h2>Find hotels quick and simple from anywhere in the world.</h2>
+        </header>
+        <nav id="nav">
+          <article id="login">
+            <img src="svg/menu.svg" alt="A menu icon." /><img
+              src="svg/profile.svg"
+              alt="A profile log-in icon."
+            />
+            <h3>Log in menu.</h3>
+          </article>
+        </nav>
+      </div>
+    </div>
+    <section id="back" class="cover-mode">
+      <h3>Dark mode map to show cities during search.</h3>
+    </section>
+    <main id="main" class="main-hide">
+      <section id="main-window">
+        <div id="map"></div>
+        <h3>Light mode map to show hotels in the area.</h3>
+      </section>
+    </main>
+    <footer id="footer" class="cover-mode">
+      <article id="grid-app">
+        <img
+          id="appstore"
+          src="img/appstore.png"
+          alt="An image to download an app from Apple App Store."
+        />
+        <img
+          id="playstore"
+          src="img/googleplay.png"
+          alt="An image to download an app from the Google Play Store."
+        />
+        <h3>Links to download the app.</h3>
+      </article>
+      <article id="grid-copyright">
+        <p id="copyright">© 2021 HotelBook, Inc.</p>
+        <h3>Copyright information.</h3>
+      </article>
+      <article id="grid-settings">
+        <img
+          id="language-icon"
+          src="svg/language.svg"
+          alt="Icon image to change language for the website."
+        />
+        <p id="language-text">English (SG)</p>
+        <img
+          id="dollar-icon"
+          src="svg/dollar.svg"
+          alt="Icon image to change the currency for the website"
+        />
+        <p id="dollar-text">SGD</p>
+        <h3>Settings to change language and currency.</h3>
+      </article>
+    </footer>
+    <section id="search-bar" class="search-bar-hide">
+      <h3>PLACEHOLDER: Search bar box when in map mode.</h3>
+    </section>
+    <section id="search-box" class="search-show">
+      <form id="form-search">
+        <div id="search-flex">
+          <div id="search">
+            <fieldset id="form-city">
+              <!-- Search cities field. -->
+              <div class="form-group">
+                <label
+                  >City
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-xs"
+                    data-container="body"
+                    data-toggle="popover"
+                    data-trigger="focus"
+                    data-placement="bottom"
+                    data-content="Input any city. Use the hint cities for more accurate results. Developer notes: The cities for the dark mode map on desktop are not showing the correct latitude and longitude locations. Needs to be fixed."
+                  >
+                    i
+                  </button></label
+                >
+                <input
+                  id="input-city"
+                  class="form-control"
+                  type="text"
+                  list="input-city-list"
+                  autocomplete="off"
+                  required
+                  placeholder="singapore"
+                  value=""
+                />
+                <datalist id="input-city-list"></datalist>
+                <div id="input-city-error-message"></div>
+              </div>
+            </fieldset>
+            <fieldset id="form-budget">
+              <!-- Search budget. -->
+              <div class="form-group">
+                <label
+                  >Budget
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-xs"
+                    data-container="body"
+                    data-toggle="popover"
+                    data-trigger="focus"
+                    data-placement="bottom"
+                    data-content="Filters hotels with price range between subsequent selections. For example, picking [~$200] filters hotels that are between $100 to $400."
+                  >
+                    i
+                  </button></label
+                >
+                <select id="select-budget" class="form-control">
+                  <option value="100">~$100</option>
+                  <option value="200" selected>~$200</option>
+                  <option value="400">~$400</option>
+                  <option value="600">~$600</option>
+                  <option value="800">~$800</option>
+                  <option value="All">All</option>
+                </select>
+                <div id="select-budget-error-message"></div>
+              </div>
+            </fieldset>
+            <fieldset id="form-location-station">
+              <!-- Search location or train station field. -->
+              <div class="form-group">
+                <label
+                  >Station/Location
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-xs"
+                    data-container="body"
+                    data-toggle="popover"
+                    data-trigger="focus"
+                    data-placement="bottom"
+                    data-content="Input any location, landmarks, postal codes or address in the chosen city. For example, MBFC in Singapore or Cornerstone in Vancouver. Developer's note: Train station hints only get populated with Singapore or Vancouver are chosen."
+                  >
+                    i
+                  </button>
+                </label>
+                <input
+                  id="input-location-station"
+                  class="form-control"
+                  type="text"
+                  list="input-location-station-list"
+                  autocomplete="off"
+                  placeholder="marina bay financial centre (optional)"
+                  value=""
+                />
+                <datalist id="input-location-station-list"></datalist>
+                <div id="input-location-station-error-message"></div>
+              </div>
+            </fieldset>
+            <fieldset id="form-checkin">
+              <!-- Search check-in date. -->
+              <div class="form-group">
+                <label
+                  >Check In
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-xs"
+                    data-container="body"
+                    data-toggle="popover"
+                    data-trigger="focus"
+                    data-placement="bottom"
+                    data-content="Check in dates auto-populate with the next day. Developer's note: This functionality is not implemented yet. Also, there is no validation to check if the date is in the past."
+                  >
+                    i
+                  </button></label
+                >
+                <input
+                  id="input-checkin"
+                  class="form-control"
+                  type="date"
+                  value="2021-01-24"
+                  min="2021-01-24"
+                  required
+                />
+                <div id="input-checkin-error-message"></div>
+              </div>
+            </fieldset>
+            <fieldset id="form-checkout">
+              <!-- Search check-out date. -->
+              <div class="form-group">
+                <label
+                  >Check Out
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-xs"
+                    data-container="body"
+                    data-toggle="popover"
+                    data-trigger="focus"
+                    data-placement="bottom"
+                    data-content="Check out dates auto-populate with the day after next. Developer's note: This functionality is not implemented yet. Also, there is no validation to check if the date is prior to check in."
+                  >
+                    i
+                  </button></label
+                >
+                <input
+                  id="input-checkout"
+                  class="form-control"
+                  type="date"
+                  value="2021-01-25"
+                  min="2021-01-25"
+                  required
+                />
+                <div id="input-checkout-error-message"></div>
+              </div>
+            </fieldset>
+            <fieldset id="form-flexibility">
+              <!-- Search date flexibility. -->
+              <div class="form-group">
+                <label
+                  >Date Flexibility
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-xs"
+                    data-container="body"
+                    data-toggle="popover"
+                    data-trigger="focus"
+                    data-placement="bottom"
+                    data-content="Flexible dates for check-in and check-out for more selection. Developer's note: This functionality is not implemented yet."
+                  >
+                    i
+                  </button></label
+                >
+                <select id="select-flexibility" class="form-control">
+                  <option value="">&#x00B1; 3 days</option>
+                  <option value="">&#x00B1; 7 days</option>
+                  <option value="">&#x00B1; 14 days</option>
+                  <option value="" selected>Exact Date</option>
+                </select>
+                <div id="select-flexibility-error-message"></div>
+              </div>
+            </fieldset>
+            <fieldset id="form-facilities">
+              <!-- Search room facilities. -->
+              <div class="group">
+                Room Facilities
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-xs"
+                  data-container="body"
+                  data-toggle="popover"
+                  data-trigger="focus"
+                  data-placement="bottom"
+                  data-content="Filter room amenities that you require. Developer's note: This functionality is not implemented yet."
+                >
+                  i
+                </button>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="input-free-wifi"
+                />
+                <label class="form-check-label">Free WiFi</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="input-microwave"
+                />
+                <label class="form-check-label">Microwave</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="input-washer-dryer"
+                />
+                <label class="form-check-label">Washer/Dryer</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="input-balcony"
+                />
+                <label class="form-check-label">Balcony</label>
+              </div>
+              <!-- Search hotel facilities. -->
+              <div class="group">
+                Hotel Facilities
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-xs"
+                  data-container="body"
+                  data-toggle="popover"
+                  data-trigger="focus"
+                  data-placement="bottom"
+                  data-content="Filter hotel facilities that you require. Developer's note: This functionality is not implemented yet."
+                >
+                  i
+                </button>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="input-pool"
+                />
+                <label class="form-check-label">Pool</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="input-gym"
+                />
+                <label class="form-check-label">Gym</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="input-bar"
+                />
+                <label class="form-check-label">Bar</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="input-laundry"
+                />
+                <label class="form-check-label">Laundry</label>
+              </div>
+            </fieldset>
+            <fieldset id="form-guests">
+              <!-- Search total guests. -->
+              <div class="form-group">
+                <label
+                  >Total Guests
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-xs"
+                    data-container="body"
+                    data-toggle="popover"
+                    data-trigger="focus"
+                    data-placement="bottom"
+                    data-content="Total guests including yourself. Developer's note: This functionality is not implemented yet."
+                  >
+                    i
+                  </button></label
+                >
+                <select id="select-guests" class="form-control">
+                  <option value="" selected>1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                </select>
+                <div id="select-guests-error-message"></div>
+              </div>
+            </fieldset>
+            <fieldset id="button">
+              <button id="search-button" type="submit" class="">Search</button>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+      <h3>The main search box.</h3>
+    </section>
+    <section id="card" class="card-inactive">
+      <h3>The area that shows the hotel card when a hotel is selected.</h3>
+      <div id="card-grid">
+        <article id="photos">
+          <div
+            id="photo-carousel"
+            class="carousel slide"
+            data-ride="carousel"
+            data-interval="false"
+          >
+            <!-- Indicators. -->
+            <ol id="photo-list" class="carousel-indicators"></ol>
+
+            <!-- Wrapper for slides. -->
+            <div id="photo-img" class="carousel-inner"></div>
+
+            <!-- Left and right controls. -->
+            <a
+              class="left carousel-control"
+              href="#photo-carousel"
+              data-slide="prev"
+            >
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="right carousel-control"
+              href="#photo-carousel"
+              data-slide="next"
+            >
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          <h3>Hotel photos carousel.</h3>
+        </article>
+        <article id="highlights">
+          <p>Highlights</p>
+          <div>
+            All 73 rooms feature thoughtful touches, plus complimentary wireless
+            Internet access and LED TVs. Amenities available to guests include
+            Egyptian sheets and rainfall showerheads.
+          </div>
+          <h3>Highlights of the hotel.</h3>
+        </article>
+        <article id="facilities">
+          <p>Facilities</p>
+          <ul>
+            <li>Free WiFi</li>
+            <li>Free Local Calls</li>
+            <li>42-inch LED TV</li>
+            <li>Espresso Maker</li>
+            <li>24-hour Fitness</li>
+            <li>Outdoor Pool</li>
+            <li>Dry Cleaning</li>
+            <li>Meeting Rooms</li>
+            <li>Rooftop Terrace</li>
+          </ul>
+          <h3>Facilities of the hotel</h3>
+        </article>
+        <article id="details">
+          <div
+            id="button-policies"
+            class="details-button details-button-policies-inactive"
+          >
+            Policies
+          </div>
+          <div
+            id="button-info"
+            class="details-button details-button-info-inactive"
+          >
+            Info
+          </div>
+          <div
+            id="button-faq"
+            class="details-button details-button-faq-inactive"
+          >
+            FAQ
+          </div>
+          <div
+            id="button-reviews"
+            class="details-button details-button-reviews-inactive"
+          >
+            Reviews
+          </div>
+          <h3>Buttons to show more information about the hotel.</h3>
+        </article>
+        <article id="name-distance">
+          <div class="name"></div>
+          <div class="nearest"></div>
+          <h3>Hotel name and distance to the nearest station.</h3>
+        </article>
+        <article id="book">
+          <p>BOOK</p>
+          <img src="svg/shop.svg" alt="A shopping card icon." />
+          <h3>Book the hotel.</h3>
+        </article>
+      </div>
+      <section
+        id="details-policies"
+        class="details-content details-policies-inactive"
+      >
+        <p>PLACEHOLDER:<br />POLICIES</p>
+        <h3>PLACEHOLDER: For information on hotel polities.</h3>
+      </section>
+      <section id="details-info" class="details-content details-info-inactive">
+        <p>PLACEHOLDER:<br />INFO</p>
+        <h3>PLACEHOLDER: For information on hotel regulations.</h3>
+      </section>
+      <section id="details-faq" class="details-content details-faq-inactive">
+        <p>PLACEHOLDER:<br />FAQ</p>
+        <h3>PLACEHOLDER: For information on hotel FAQs.</h3>
+      </section>
+      <section
+        id="details-reviews"
+        class="details-content details-reviews-inactive"
+      >
+        <p>PLACEHOLDER:<br />REVIEWS</p>
+        <h3>PLACEHOLDER: For information on hotel reviews.</h3>
+      </section>
+    </section>
+    <section id="mobile-landscape-mode" class="mobile-landscape-mode-inactive">
+      <div>
+        <p>Please rotate your device to portrait mode.</p>
+      </div>
+      <h3>
+        PLACEHOLDER: Functionality for landscape mode for the website or block
+        usage for landscape.
+      </h3>
+    </section>
+    <div id="marker-cursor-block" class="marker-cursor-block-inactive"></div>
+    <div
+      id="marker-hotel-cursor-block"
+      class="marker-hotel-cursor-block-inactive"
+    ></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQUu01hvcUZo14XTn4dqKqW2sNG_fpGik"></script>
+    <script src="js/date.js"></script>
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>

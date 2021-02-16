@@ -1,0 +1,17 @@
+* {
+  /* border: 1px solid pink; */
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+img[src="img/price-icon.png"] {
+  border: 1px solid black !important;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+}

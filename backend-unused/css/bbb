@@ -1,0 +1,25 @@
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+    async
+    defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQUu01hvcUZo14XTn4dqKqW2sNG_fpGik&callback=initMap"
+    type="text/javascript"
+  ></script>
+  <script src="js/script.js"></script>
+
+  <html>
+  <head>
+    <title>Custom HTML Map Markers</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+    <!-- <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQUu01hvcUZo14XTn4dqKqW2sNG_fpGik&callback=initMap"
+      type="text/javascript"
+    ></script> -->
+  </body>
+</html>

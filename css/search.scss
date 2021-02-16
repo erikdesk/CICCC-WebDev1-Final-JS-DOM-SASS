@@ -1,0 +1,348 @@
+@import "mixin";
+@import "color";
+@import "font";
+
+.search-show {
+  display: block;
+}
+
+.search-hide {
+  display: none;
+}
+
+.search-bar-show {
+  display: none;
+}
+
+.search-bar-hide {
+  display: none;
+}
+
+.btn-info {
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+}
+
+.btn-group-xs > .btn,
+.btn-xs {
+  padding: 0.6rem 0.6rem;
+  font-size: 1rem;
+  line-height: 0.5;
+  border-radius: 0.5rem;
+  border: 0;
+  background-color: rgb(185, 185, 185);
+  color: white;
+  margin-left: 4px;
+}
+
+#search-box {
+  position: fixed;
+  top: 120px;
+  left: 100px;
+  width: 330px;
+  height: 540px;
+  /* display: block; */
+}
+/*# sourceMappingURL=style.css.map */
+
+#search-bar {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  background-color: red;
+}
+
+@media screen and (max-width: 700px) {
+  #search-box {
+    position: fixed;
+    top: 100px;
+    left: calc((100vw - 330px) / 2);
+  }
+
+  #search-bar {
+    position: fixed;
+    top: 10px;
+    left: calc((100vw - 330px) / 2);
+  }
+}
+
+#search-flex {
+  @include flexCenter();
+  height: 540px;
+  width: 330px;
+  background-color: $color-search-bg;
+  box-shadow: $shadow-search;
+  border-radius: 20px;
+}
+
+#search {
+  display: grid;
+  grid-template-rows: 80px 80px 80px 80px 80px 80px 50px;
+  grid-template-columns: 165px 65px 100px;
+
+  #form-city {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 5px;
+  }
+
+  #form-location-station {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    padding: 5px;
+  }
+
+  #form-checkin {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding: 5px;
+  }
+
+  #form-checkout {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding: 5px;
+  }
+
+  #form-flexibility {
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding: 5px;
+  }
+
+  #form-facilities {
+    grid-row-start: 3;
+    grid-row-end: 7;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    padding: 5px;
+    margin: 15px 5px;
+
+    .group {
+      padding-top: 5px;
+      margin-left: 10px;
+    }
+    .form-check {
+      margin-left: 20px;
+    }
+  }
+
+  #form-guests {
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding: 5px;
+  }
+
+  #form-budget {
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    padding: 5px;
+  }
+
+  #button {
+    @include flexCenter();
+    grid-row-start: 7;
+    grid-row-end: 8;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    padding: 5px;
+  }
+
+  #form-city {
+    label {
+      @include flexCenter();
+      @include font($font-search-label);
+      color: $color-search-label;
+    }
+    #input-city {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+      height: 35px;
+
+      &::placeholder {
+        opacity: 0.5;
+        font-weight: 100;
+      }
+    }
+  }
+
+  #form-location-station {
+    label {
+      @include flexCenter();
+      @include font($font-search-label);
+      color: $color-search-label;
+    }
+    #input-location-station {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+      height: 35px;
+
+      &::placeholder {
+        opacity: 0.5;
+        font-weight: 100;
+      }
+    }
+  }
+
+  #form-checkin {
+    label {
+      @include flexCenter();
+      @include font($font-search-label);
+      color: $color-search-label;
+    }
+
+    input {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+      height: 35px;
+    }
+
+    select {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+    }
+  }
+
+  #form-checkout {
+    label {
+      @include flexCenter();
+      @include font($font-search-label);
+      color: $color-search-label;
+    }
+
+    input {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+      height: 35px;
+    }
+
+    select {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+    }
+  }
+
+  #form-facilities {
+    border: $border-search-facilities;
+    border-radius: 15px;
+
+    .group {
+      padding-top: 16px;
+      @include font($font-search-facilities-group);
+      color: $color-search-label;
+    }
+
+    label {
+      @include font($font-search-facilities-item);
+      color: $color-search-label;
+    }
+  }
+
+  #form-flexibility {
+    label {
+      @include flexCenter();
+      @include font($font-search-label);
+      color: $color-search-label;
+    }
+
+    input {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+      height: 35px;
+    }
+
+    select {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+    }
+  }
+
+  #form-budget {
+    label {
+      @include flexCenter();
+      @include font($font-search-label);
+      color: $color-search-label;
+    }
+
+    input {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+      height: 35px;
+    }
+
+    select {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+      height: 35px;
+    }
+  }
+
+  #form-guests {
+    label {
+      @include flexCenter();
+      @include font($font-search-label);
+      color: $color-search-label;
+    }
+
+    input {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+      height: 35px;
+    }
+
+    select {
+      @include font($font-search-input);
+      color: $color-search-input;
+      border: $border-search-input-default;
+      border-radius: 15px;
+      height: 35px;
+    }
+  }
+
+  #button {
+    button {
+      @include font($font-search-button);
+      border: $border-search-button-default;
+      border-radius: 10px;
+      height: 40px;
+    }
+  }
+}
